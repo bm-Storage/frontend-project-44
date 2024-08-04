@@ -1,7 +1,6 @@
-import readlineSync from 'readline-sync';
 import askUserName from '../cli.js';
 import {
-  isAnswerCorrect, getRandomInt, getRandomOperator, maxRoundCount,
+  isAnswerCorrect, getRandomInt, getRandomOperator, maxRoundCount, userAnswer,
 } from '../index.js';
 
 export default () => {
@@ -13,8 +12,7 @@ export default () => {
     const secondNumber = getRandomInt();
     const operator = getRandomOperator();
 
-    console.log(`Question:${firstNumber} ${operator} ${secondNumber}!`);
-    const answer = readlineSync.question('Your answer: ');
+    const answer = userAnswer(firstNumber, operator, secondNumber);
     let correctAnswer;
 
     switch (operator) {

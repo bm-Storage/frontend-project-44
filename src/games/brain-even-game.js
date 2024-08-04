@@ -1,6 +1,7 @@
-import readlineSync from 'readline-sync';
 import askUserName from '../cli.js';
-import { isAnswerCorrect, getRandomInt, maxRoundCount } from '../index.js';
+import {
+  isAnswerCorrect, getRandomInt, maxRoundCount, userAnswer,
+} from '../index.js';
 
 export default () => {
   const userName = askUserName();
@@ -9,8 +10,7 @@ export default () => {
   for (let i = 0; i < maxRoundCount(); i += 1) {
     const number = getRandomInt();
 
-    console.log(`Question:${number}!`);
-    const answer = readlineSync.question('Your answer: ');
+    const answer = userAnswer(number);
 
     const correctAnswer = number % 2 === 0 ? 'yes' : 'no';
     if (!isAnswerCorrect(answer, correctAnswer, userName)) {
