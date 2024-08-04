@@ -10,10 +10,10 @@ const isAnswerCorrect = (answer, correctAnswer, userName) => {
   return false;
 };
 
-const getRandomInt = () => {
-  const max = 30;
-  const randomInt = Math.floor(Math.random() * max);
-  return randomInt;
+const getRandomInt = (min = 0, max = 30) => {
+  const rangeMin = Math.ceil(min);
+  const ramgeMax = Math.floor(max);
+  return Math.floor(Math.random() * (ramgeMax - rangeMin + 1)) + rangeMin;
 };
 
 const getRandomOperator = () => {
