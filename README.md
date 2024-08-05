@@ -5,4 +5,9 @@
 
 ### Demo
 
-[Brain-games demo](https://asciinema.org/a/ADqAVauI1CnoMKaIUX9YNWk4u)
+[Brain-games install](https://asciinema.org/a/oHo0I5mW7zHe8lhP4N9calfBC)
+[Brain-even](https://asciinema.org/a/mI7IZqbO4Sa14qpgnvcq72Hsz)
+[Brain-calc](https://asciinema.org/a/XSSpAJtOhNLc3AlwwZZKjiy4T)
+[Brain-gcd](https://asciinema.org/a/ACgWB271RKtM8phi1izUBfRvA)
+[Brain-progression](https://asciinema.org/a/WzLJ5z6NXVBC9vDTxcrvqycNt)
+[Brain-prime](https://asciinema.org/a/J62VQB5IPf34evPeNOSDzLcbr)
