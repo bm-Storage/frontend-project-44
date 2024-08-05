@@ -1,6 +1,6 @@
 import askUserName from '../cli.js';
 import {
-  isAnswerCorrect, getRandomInt, maxRoundCount, gcd, userAnswer,
+  isAnswerCorrect, getRandomInt, maxRoundCount, gcd, getUserAnswer,
 } from '../index.js';
 
 export default () => {
@@ -11,12 +11,12 @@ export default () => {
     const firstNumber = getRandomInt();
     const secondNumber = getRandomInt();
 
-    const answer = userAnswer(firstNumber, secondNumber);
+    const userAnswer = getUserAnswer(firstNumber, secondNumber);
     const correctAnswer = gcd(firstNumber, secondNumber);
 
-    if (!isAnswerCorrect(answer, correctAnswer, userName)) {
+    if (!isAnswerCorrect(userAnswer, correctAnswer, userName)) {
       return;
     }
-    console.log(`Congratulations, ${userName}!`);
   }
+  console.log(`Congratulations, ${userName}!`);
 };

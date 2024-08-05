@@ -1,6 +1,6 @@
 import askUserName from '../cli.js';
 import {
-  isAnswerCorrect, getRandomInt, maxRoundCount, userAnswer,
+  isAnswerCorrect, getRandomInt, maxRoundCount, getUserAnswer,
 } from '../index.js';
 
 export default () => {
@@ -10,10 +10,10 @@ export default () => {
   for (let i = 0; i < maxRoundCount(); i += 1) {
     const number = getRandomInt();
 
-    const answer = userAnswer(number);
-
+    const userAnswer = getUserAnswer(number);
     const correctAnswer = number % 2 === 0 ? 'yes' : 'no';
-    if (!isAnswerCorrect(answer, correctAnswer, userName)) {
+
+    if (!isAnswerCorrect(userAnswer, correctAnswer, userName)) {
       return;
     }
   }
