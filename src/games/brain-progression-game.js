@@ -24,7 +24,7 @@ export default () => {
       } result = `${result} ${lastItem}`;
       lastItem += progressionStep;
     }
-    const userAnswer = getUserAnswer(result);
+    const userAnswer = getUserAnswer(result.slice(1));
 
     if (!isAnswerCorrect(userAnswer, correctAnswer, userName)) {
       return;
