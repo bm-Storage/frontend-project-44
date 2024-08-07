@@ -17,8 +17,9 @@ npm link
 
 ```bash
 
-"Brain games" is a set of five console games. Each game asks questions that must be answered correctly.After three correct
-answers, the game is considered completed. Wrong answers end the game and prompt you to play it again.
+"Brain games" is a set of five console games. Each game asks questions that must be answered correctly.
+After three correct answers, the game is considered completed.
+Wrong answers end the game and prompt you to play it again.
 
 ```
 
