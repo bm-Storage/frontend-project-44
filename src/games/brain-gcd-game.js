@@ -1,22 +1,33 @@
-import askUserName from '../cli.js';
-import {
-  isAnswerCorrect, getRandomInt, maxRoundCount, gcd, getUserAnswer,
-} from '../index.js';
+import playGame from '../index.js';
+import { getRandomInt } from '../gen-random.js';
 
-export default () => {
-  const userName = askUserName();
-  console.log('Find the greatest common divisor of given numbers.');
+const taskDescription = 'Find the greatest common divisor of given numbers.';
 
-  for (let i = 0; i < maxRoundCount(); i += 1) {
-    const firstNumber = getRandomInt();
-    const secondNumber = getRandomInt();
+const getGreatestCommonDivisor = (question) => {
+  const [firstNumber, secondNumber] = question.split(' ').map(Number);
+  let a = firstNumber;
+  let b = secondNumber;
+  if (a === 0) return b;
+  if (b === 0) return a;
+  if (a === b) return a;
 
-    const userAnswer = getUserAnswer(firstNumber, secondNumber);
-    const correctAnswer = gcd(firstNumber, secondNumber);
-
-    if (!isAnswerCorrect(userAnswer, correctAnswer, userName)) {
-      return;
+  while (a !== b) {
+    if (a > b) {
+      a -= b;
+    } else {
+      b -= a;
     }
   }
-  console.log(`Congratulations, ${userName}!`);
+  return b;
+};
+
+const getQuestionAndAnswer = () => {
+  const question = `${getRandomInt(1, 100)} ${getRandomInt(1, 100)}`;
+  const correctAnswer = getGreatestCommonDivisor(question);
+
+  return [question, correctAnswer];
+};
+
+export default () => {
+  playGame(taskDescription, getQuestionAndAnswer);
 };

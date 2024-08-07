@@ -1,33 +1,36 @@
-import askUserName from '../cli.js';
-import {
-  isAnswerCorrect, getRandomInt, getRandomOperator, maxRoundCount, getUserAnswer,
-} from '../index.js';
+import playGame from '../index.js';
+import { getRandomInt } from '../gen-random.js';
+
+const taskDescription = 'What is the result of the expression?';
+
+const getRandomOperator = () => {
+  const operators = ['+', '-', '*'];
+  return operators[Math.floor(Math.random() * operators.length)];
+};
+
+const expressionResult = (question) => {
+  const [firstNumber, operator, secondNumber] = question.split(' ');
+  let result;
+  switch (operator) {
+    case '+':
+      result = Number(firstNumber) + Number(secondNumber);
+      break;
+    case '-':
+      result = Number(firstNumber) - Number(secondNumber);
+      break;
+    default:
+      result = Number(firstNumber) * Number(secondNumber);
+  }
+  return result;
+};
+
+const getQuestionAndAnswer = () => {
+  const question = `${getRandomInt(1, 30)} ${getRandomOperator()} ${getRandomInt(1, 30)}`;
+  const correctAnswer = expressionResult(question);
+
+  return [question, correctAnswer];
+};
 
 export default () => {
-  const userName = askUserName();
-  console.log('What is the result of the expression?');
-
-  for (let i = 0; i < maxRoundCount(); i += 1) {
-    const firstNumber = getRandomInt();
-    const secondNumber = getRandomInt();
-    const operator = getRandomOperator();
-
-    const userAnswer = getUserAnswer(firstNumber, operator, secondNumber);
-    let correctAnswer;
-
-    switch (operator) {
-      case '+':
-        correctAnswer = firstNumber + secondNumber;
-        break;
-      case '-':
-        correctAnswer = firstNumber - secondNumber;
-        break;
-      default:
-        correctAnswer = firstNumber * secondNumber;
-    }
-    if (!isAnswerCorrect(userAnswer, correctAnswer, userName)) {
-      return;
-    }
-  }
-  console.log(`Congratulations, ${userName}!`);
+  playGame(taskDescription, getQuestionAndAnswer);
 };
