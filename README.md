@@ -22,7 +22,7 @@ make install
 npm link
 ```
 
-![ascii](https://github.com/user-attachments/assets/b8fad339-9045-460e-ab1c-b33ab8ef3b79)
+![asciiNew](https://github.com/user-attachments/assets/6c1742d0-3a3d-42cb-b7e6-e46715ffc62b)
 
 ### Brain even
 
