@@ -12,10 +12,11 @@ export default (taskDescription, getQuestionAndAnswer) => {
 
   for (let i = 0; i < maxRound; i += 1) {
     const [question, correctAnswer] = getQuestionAndAnswer();
+
     console.log(`Question: ${question}`);
     const userAnswer = readlineSync.question('Your answer: ');
 
-    if (userAnswer === correctAnswer) {
+    if (userAnswer === String(correctAnswer)) {
       console.log('Great!');
     } else {
       console.log(`${userAnswer} is wrong answer ;(. Correct answer was ${correctAnswer}.`);

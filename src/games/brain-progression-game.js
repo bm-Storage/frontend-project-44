@@ -28,7 +28,7 @@ const getQuestionAndAnswer = () => {
   const question = getProgression(progressionStart, progressionLength, progressionStep);
   const correctAnswer = question[hiddenItem];
   question[hiddenItem] = '..';
-  return [question.join(' '), `${correctAnswer}`];
+  return [question.join(' '), correctAnswer];
 };
 
 export default () => {

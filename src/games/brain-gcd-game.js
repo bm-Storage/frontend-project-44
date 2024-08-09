@@ -24,7 +24,7 @@ const getQuestionAndAnswer = () => {
   const question = [getRandomInt(numMin, numMax), getRandomInt(numMin, numMax)];
   const correctAnswer = getGreatestCommonDivisor(question);
 
-  return [question.join(' '), `${correctAnswer}`];
+  return [question.join(' '), correctAnswer];
 };
 
 export default () => {

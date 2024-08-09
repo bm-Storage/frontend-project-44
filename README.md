@@ -12,7 +12,7 @@
 ```bash
 npm
 
-nodejs
+node.js
 ```
 ### Installation
 
