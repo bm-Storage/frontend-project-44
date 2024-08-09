@@ -7,7 +7,7 @@ const isEven = (number) => number % 2 === 0;
 
 const getQuestionAndAnswer = () => {
   const numMin = 1;
-  const numMax = 30;
+  const numMax = 50;
 
   const question = getRandomInt(numMin, numMax);
   const correctAnswer = isEven(question) ? 'yes' : 'no';

@@ -8,16 +8,13 @@ const getGreatestCommonDivisor = (question) => {
   let a = firstNumber;
   let b = secondNumber;
   if (a === 0) return b;
-  if (b === 0 || (a === b)) return a;
-
-  while (a !== b) {
-    if (a > b) {
-      a -= b;
-    } else {
-      b -= a;
-    }
+  if (b === 0 || a === b) return a;
+  while (b !== 0) {
+    const temp = b;
+    b = a % b;
+    a = temp;
   }
-  return b;
+  return a;
 };
 
 const getQuestionAndAnswer = () => {
