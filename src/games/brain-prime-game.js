@@ -1,5 +1,5 @@
 import playGame from '../index.js';
-import { getRandomInt } from '../gen-random.js';
+import getRandomInt from '../gen-random.js';
 
 const taskDescription = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
@@ -11,7 +11,10 @@ const isPrime = (number) => {
 };
 
 const getQuestionAndAnswer = () => {
-  const question = getRandomInt(1, 100);
+  const numMin = 1;
+  const numMax = 100;
+
+  const question = getRandomInt(numMin, numMax);
   const correctAnswer = isPrime(question) ? 'yes' : 'no';
 
   return [question, correctAnswer];

@@ -1,5 +1,5 @@
 import playGame from '../index.js';
-import { getRandomInt } from '../gen-random.js';
+import getRandomInt from '../gen-random.js';
 
 const taskDescription = 'What is the result of the expression?';
 
@@ -8,27 +8,25 @@ const getRandomOperator = () => {
   return operators[Math.floor(Math.random() * operators.length)];
 };
 
-const expressionResult = (question) => {
-  const [firstNumber, operator, secondNumber] = question.split(' ');
-  let result;
+const getExpressionResult = (question) => {
+  const [firstNumber, operator, secondNumber] = question;
   switch (operator) {
     case '+':
-      result = Number(firstNumber) + Number(secondNumber);
-      break;
+      return firstNumber + secondNumber;
     case '-':
-      result = Number(firstNumber) - Number(secondNumber);
-      break;
+      return firstNumber - secondNumber;
+    case '*':
+      return firstNumber * secondNumber;
     default:
-      result = Number(firstNumber) * Number(secondNumber);
+      throw new Error(`Invalid operator: '${operator}'. Valid operators are: +, -, *.`);
   }
-  return result;
 };
 
 const getQuestionAndAnswer = () => {
-  const question = `${getRandomInt(1, 30)} ${getRandomOperator()} ${getRandomInt(1, 30)}`;
-  const correctAnswer = expressionResult(question);
+  const question = [getRandomInt(), getRandomOperator(), getRandomInt()];
+  const correctAnswer = getExpressionResult(question);
 
-  return [question, correctAnswer];
+  return [question.join(' '), `${correctAnswer}`];
 };
 
 export default () => {

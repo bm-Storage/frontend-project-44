@@ -15,7 +15,7 @@ export default (taskDescription, getQuestionAndAnswer) => {
     console.log(`Question: ${question}`);
     const userAnswer = readlineSync.question('Your answer: ');
 
-    if (userAnswer.toString() === correctAnswer.toString()) {
+    if (userAnswer === correctAnswer) {
       console.log('Great!');
     } else {
       console.log(`${userAnswer} is wrong answer ;(. Correct answer was ${correctAnswer}.`);

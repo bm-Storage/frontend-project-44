@@ -1,28 +1,34 @@
 import playGame from '../index.js';
-import { randomProgressionOptions } from '../gen-random.js';
+import getRandomInt from '../gen-random.js';
 
 const taskDescription = 'What number is missing in the progression?';
 
-const getProgression = () => {
-  const [firstItem, progressionLength, progressionStep, hiddenSpot] = randomProgressionOptions();
-  let hiddenNumber;
-  let result = '';
-  let lastItem = firstItem;
-  for (let i = 0; i < progressionLength; i += 1) {
-    if (i === hiddenSpot) {
-      result = `${result} ${'..'}`;
-      hiddenNumber = lastItem;
-      lastItem += progressionStep;
-    } result = `${result} ${lastItem}`;
-    lastItem += progressionStep;
+const getProgression = (start, length, step) => {
+  const result = [];
+  for (let i = start; result.length <= length; i += step) {
+    result.push(i);
   }
-  const progression = result.trim();
-  return [progression, hiddenNumber];
+  return result;
 };
 
 const getQuestionAndAnswer = () => {
-  const [question, correctAnswer] = getProgression();
-  return [question, correctAnswer];
+  const progressionLengthMin = 5;
+  const progressionLengthMax = 10;
+  const progressionStepMin = 2;
+  const progressionStepMax = 7;
+  const progressionStartMin = 5;
+  const progressionStartMax = 10;
+  const hiddenItemMin = 0;
+
+  const progressionStart = getRandomInt(progressionStartMin, progressionStartMax);
+  const progressionLength = getRandomInt(progressionLengthMin, progressionLengthMax);
+  const progressionStep = getRandomInt(progressionStepMin, progressionStepMax);
+  const hiddenItem = getRandomInt(hiddenItemMin, progressionLength - 1);
+
+  const question = getProgression(progressionStart, progressionLength, progressionStep);
+  const correctAnswer = question[hiddenItem];
+  question[hiddenItem] = '..';
+  return [question.join(' '), `${correctAnswer}`];
 };
 
 export default () => {
