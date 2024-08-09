@@ -3,6 +3,17 @@
 [![Actions Status](https://github.com/bm-Storage/frontend-project-44/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/bm-Storage/frontend-project-44/actions)
 [![Maintainability](https://api.codeclimate.com/v1/badges/50575001cb1bba013b53/maintainability)](https://codeclimate.com/github/bm-Storage/frontend-project-44/maintainability)
 
+## Brain games
+
+"Brain games" is a set of five console games. Each game asks questions that must be answered correctly. After three correct answers, the game is considered completed. Wrong answers end the game and prompt you to play it again.
+
+### System requirements
+
+```bash
+npm
+
+nodejs
+```
 ### Installation
 
 ```bash
@@ -12,16 +23,6 @@ npm link
 ```
 
 ![ascii](https://github.com/user-attachments/assets/b8fad339-9045-460e-ab1c-b33ab8ef3b79)
-
-### Brain games
-
-```bash
-
-"Brain games" is a set of five console games. Each game asks questions that must be answered correctly.
-After three correct answers, the game is considered completed.
-Wrong answers end the game and prompt you to play it again.
-
-```
 
 ### Brain even
 
@@ -76,7 +77,7 @@ to start:
 
 ```bash
 
-You need to determine which number is missing in the progression
+You need to determine which number is missing in the progression.
 
 to start:
     brain-progression
