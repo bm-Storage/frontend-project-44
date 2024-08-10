@@ -25,8 +25,7 @@ const getExpressionResult = (question) => {
 const getQuestionAndAnswer = () => {
   const question = [getRandomInt(), getRandomOperator(), getRandomInt()];
   const correctAnswer = getExpressionResult(question);
-
-  return [question.join(' '), correctAnswer];
+  return [question.join(' '), String(correctAnswer)];
 };
 
 export default () => {

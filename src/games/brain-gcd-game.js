@@ -2,6 +2,8 @@ import playGame from '../index.js';
 import getRandomInt from '../gen-random.js';
 
 const taskDescription = 'Find the greatest common divisor of given numbers.';
+const numMin = 1;
+const numMax = 100;
 
 const getGreatestCommonDivisor = (question) => {
   const [firstNumber, secondNumber] = question;
@@ -18,13 +20,10 @@ const getGreatestCommonDivisor = (question) => {
 };
 
 const getQuestionAndAnswer = () => {
-  const numMin = 1;
-  const numMax = 100;
-
   const question = [getRandomInt(numMin, numMax), getRandomInt(numMin, numMax)];
   const correctAnswer = getGreatestCommonDivisor(question);
 
-  return [question.join(' '), correctAnswer];
+  return [question.join(' '), String(correctAnswer)];
 };
 
 export default () => {
